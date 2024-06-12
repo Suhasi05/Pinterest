@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const plm = require('passport-local-mongoose');
 require('dotenv').config();
 
-const mongoURL = process.env.DB_URL;
+const DB_URL = process.env.DB_URL;
 // const mongoURL = process.env.DB_URL_Local;
 
 const options = {
@@ -12,7 +12,7 @@ const options = {
   socketTimeoutMS: 45000, // 45 seconds
 };
 
-mongoose.connect('your_mongodb_connection_string', options)
+mongoose.connect(DB_URL, options)
   .then(() => console.log('Database connected successfully'))
   .catch(err => console.log('Database connection error:', err));
 
