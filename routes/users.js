@@ -3,7 +3,7 @@ const plm = require('passport-local-mongoose');
 require('dotenv').config();
 
 const DB_URL = process.env.DB_URL;
-// const mongoURL = process.env.DB_URL_Local;
+// const DB_URL = process.env.DB_URL_Local;
 
 const options = {
   useNewUrlParser: true,
@@ -45,11 +45,11 @@ const userSchema = new mongoose.Schema({
   posts: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'post',
+      ref: 'feed',
     }
   ]
 });
 
 userSchema.plugin(plm);
 
-module.exports = mongoose.model('user', userSchema);
+module.exports = mongoose.model('people', userSchema);

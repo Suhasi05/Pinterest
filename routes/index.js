@@ -50,7 +50,6 @@ router.post('/register', async (req, res) => {
   }
 });
 
-
 router.post('/login', passport.authenticate('local', {
   successRedirect: '/profile',
   failureRedirect: '/login',
@@ -102,7 +101,7 @@ router.get('/add', isLoggedIn, async (req, res) => {
   res.render('add', {nav: true, user});
 });
 
-router.post('/createpost', isLoggedIn, upload.single('postimage'), async (req, res) => {
+router.post('/createpost', isLoggedIn, upload.single('postImage'), async (req, res) => {
   const user = await userModel.findOne({username: req.session.passport.user});
   const post = await postModel.create({
     user: user._id,

@@ -15,8 +15,8 @@ const postSchema = new mongoose.Schema({
     title: String,
     user: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'user',
+        ref: 'people',
     }
 });
 
-module.exports = mongoose.model('post', postSchema);
+module.exports = mongoose.model('feed', postSchema);
